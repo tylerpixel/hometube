@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ current_video[:-4] }}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="static/bookmark.js" defer></script>
+    <script src="static/ui-updater.js" defer></script>
+</head>
+<body>
+
+<h1>{{ current_video[:-4] }}</h1>
+
+<div class="main-content">
+    <video id="mainVideo" width="1280" height="720" controls>
+        <source src="{{ url_for('video', filename=current_video) }}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <button id="bookmarkBtn" class="bookmark-item">Bookmark Timestamp</button>
+  <div id="overlay" class="overlay">Videomark Saved</div>
+  <div id="bookmarks" class="bookmarks">
+    <!-- Bookmarks will go here -->
+  </div>
+</div>
+
+  </div>
+  
+  <div class="sidebar">
+    <h2>More Videos</h2>
+    <ul>
+      {% for video in video_files %}
+          <li><a href="{{ url_for('index', video_name=video) }}">{{ video[:-4] }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+  </body>
+  </html>
