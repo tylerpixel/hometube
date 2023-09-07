@@ -11,6 +11,7 @@ h1, h2 {
 
 video {
   margin-top: 20px;
+  border-radius: 8px;
   margin-bottom: 10px;
 }
 
@@ -60,8 +61,14 @@ video {
   z-index: 1; /* above the video */
 }
 
+.bookmark-container {
+  display: flex;
+  align-items: center;
+}
+
 .bookmarks {
-  margin-top: 10px;
+  display: inline-block;
+  vertical-align: top;
   display: flex;
   flex-wrap: wrap;
 }
@@ -75,6 +82,8 @@ video {
 }
 
 .bookmark-item {
+  display: inline-block;
+  vertical-align: top;
   background-color: #64B5F6;  /* Deep cool blue */
   color: #ffffff;  /* Text color */
   padding: 10px;   /* Inner spacing */

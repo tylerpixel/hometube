@@ -1,3 +1,23 @@
+// Utility function to format time
+function formatTime(timeInSeconds) {
+  const parts = [];
+  const hours = Math.floor(timeInSeconds / 3600);
+  const minutes = Math.floor((timeInSeconds % 3600) / 60);
+  const seconds = Math.floor(timeInSeconds % 60);
+
+  if (hours > 0) {
+      parts.push(hours.toString().padStart(2, '0'));
+  }
+
+  if (minutes > 0 || hours > 0) {
+      parts.push(minutes.toString().padStart(2, '0'));
+  }
+
+  parts.push(seconds.toString().padStart(2, '0'));
+
+  return parts.join(':');
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     console.log('DOMContentLoaded'); // Debug line
     const video = document.getElementById('mainVideo');
@@ -37,7 +57,9 @@ document.addEventListener('DOMContentLoaded', function() {
     function createBookmark(time) {
       const bookmarkElement = document.createElement('div');
       bookmarkElement.className = 'bookmark bookmark-item noselect';
-      bookmarkElement.textContent = `${time.toFixed(2)}s`;
+  
+      // Use the formatTime function to format the time label
+      bookmarkElement.textContent = formatTime(time);
     
       let longpress = false;
       let isMouseDown = false;

@@ -16,10 +16,12 @@
         <source src="{{ url_for('video', filename=current_video) }}" type="video/mp4">
         Your browser does not support the video tag.
     </video>
-    <button id="bookmarkBtn" class="bookmark-item">Bookmark Timestamp</button>
   <div id="overlay" class="overlay">Videomark Saved</div>
-  <div id="bookmarks" class="bookmarks">
-    <!-- Bookmarks will go here -->
+  <div class="bookmark-container">
+    <button id="bookmarkBtn" class="bookmark-item">Bookmark Time</button>
+    <div id="bookmarks" class="bookmarks">
+      <!-- Bookmarks will go here -->
+    </div>
   </div>
 </div>
 
